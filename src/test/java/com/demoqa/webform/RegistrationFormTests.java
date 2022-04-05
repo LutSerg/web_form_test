@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationFormTests {
@@ -16,7 +17,13 @@ public class RegistrationFormTests {
         }
         @Test
         void fillRegistrationForm() {
+            String name = "Serg";
+            String surname = "erweFF";
+
             open ("/automation-practice-form");
+
+            $("#firstName").setValue(name);
+            $("#lastName").setValue(surname);//<input required="" autocomplete="off" placeholder="First Name" type="text" id="firstName" class=" mr-sm-2 form-control">
 
         }
 }
