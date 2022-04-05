@@ -19,11 +19,20 @@ public class RegistrationFormTests {
         void fillRegistrationForm() {
             String name = "Serg";
             String surname = "erweFF";
+            String email = "eFdd@aadasd.gg";
 
             open ("/automation-practice-form");
-
+            //вставка имени и фамилии в полях firstName и lastName
             $("#firstName").setValue(name);
-            $("#lastName").setValue(surname);//<input required="" autocomplete="off" placeholder="First Name" type="text" id="firstName" class=" mr-sm-2 form-control">
+            $("#lastName").setValue(surname);
+
+            //Вставка email
+            $("#userEmail").setValue(email);
+
+            //выделение радиобаттона Пол
+            $(".custom-control-label[for=gender-radio-2]").click();
+
+
 
         }
 }
