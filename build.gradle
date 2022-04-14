@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 repositories {
@@ -10,9 +10,14 @@ dependencies {
     testImplementation (
             'org.junit.jupiter:junit-jupiter:5.8.1',
             "com.codeborne:selenide:6.3.5",
-            "org.slf4j:slf4j-simple:1.7.36"
+            "org.slf4j:slf4j-simple:1.7.36",
+            "com.github.javafaker:javafaker:1.0.2"
 
     )
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 test {
