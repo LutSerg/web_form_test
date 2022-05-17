@@ -34,13 +34,12 @@ public class RegistrationFormPageObjectTests extends TestBase {
         @DisplayName("Региcтрация студента")
         void fillRegistrationForm() {
 
-
             SelenideElement submit = $("#submit");
 
             step("Открытие страницы сайта", () -> {
                 registrationOpenPage.openRegistrationForm();
                     });
-            //открытие страницы браузера
+
 
             step("Ввод данных", () -> {
             //Ввод личных данных

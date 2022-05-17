@@ -16,8 +16,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
-    @BeforeAll
-     static void setUp() {
+    @BeforeEach
+     void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         Configuration.baseUrl = "https://demoqa.com";
@@ -39,9 +39,5 @@ public class TestBase {
         closeWebDriver();
     }
 
-    @AfterAll
-    static void close() {
-        SelenideElement closeButton = $("#closeLargeModal");
-        closeButton.click();
-    }
+
 }
