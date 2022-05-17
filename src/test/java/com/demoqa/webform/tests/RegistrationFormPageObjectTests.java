@@ -29,17 +29,14 @@ public class RegistrationFormPageObjectTests extends TestBase {
     Faker faker = new Faker();
 
 
-    @AfterAll
-    static void close() {
-        SelenideElement closeButton = $("#closeLargeModal");
-        closeButton.click();
-    }
+
         @Test
         @DisplayName("Региcтрация студента")
         void fillRegistrationForm() {
 
 
             SelenideElement submit = $("#submit");
+
             step("Открытие страницы сайта", () -> {
                 registrationOpenPage.openRegistrationForm();
                     });
