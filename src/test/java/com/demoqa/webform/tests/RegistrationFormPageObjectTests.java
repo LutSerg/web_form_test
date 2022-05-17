@@ -3,16 +3,23 @@ package com.demoqa.webform.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.webform.components.*;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import com.github.javafaker.Faker;
 
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
 
+@Owner("LutSerg")
+@Severity(SeverityLevel.NORMAL)
+@Feature("Тесты с формой регистрации")
+@Story("Заполнение и проверка формы регистрации")
 
-public class RegistrationFormPageObjectTests {
+public class RegistrationFormPageObjectTests extends TestBase {
 
     RegistrationOpenPage registrationOpenPage = new RegistrationOpenPage();
     PersonInfo fillPersonInfo = new PersonInfo();
@@ -22,26 +29,23 @@ public class RegistrationFormPageObjectTests {
     Faker faker = new Faker();
 
 
-    @BeforeAll
-        static void setUp() {
-            Configuration.holdBrowserOpen = true;
-            Configuration.baseUrl = "https://demoqa.com";
-            Configuration.browserSize = "1920x1080";
-        }
-
     @AfterAll
     static void close() {
         SelenideElement closeButton = $("#closeLargeModal");
         closeButton.click();
     }
         @Test
+        @DisplayName("Региcтрация студента")
         void fillRegistrationForm() {
 
+
             SelenideElement submit = $("#submit");
-
-
+            step("Открытие страницы сайта", () -> {
+                registrationOpenPage.openRegistrationForm();
+                    });
             //открытие страницы браузера
-            registrationOpenPage.openRegistrationForm();
+
+            step("Ввод данных", () -> {
             //Ввод личных данных
             fillPersonInfo.setPersonInfo();
             //ввод даты рождения
@@ -58,11 +62,14 @@ public class RegistrationFormPageObjectTests {
             setFullAdress.setStateAndCity();
 
             submit.click();
+        });
 
+            step("Проверка введенных данных", () -> {
             fillPersonInfo.checkPersonResult();
             setFullAdress.checkAdressResult();
             setOtherInfo.checkOtherInfo();
             setPicture.checkPhoto();
+        });
 
-        }
+    }
 }
