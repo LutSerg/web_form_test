@@ -29,7 +29,6 @@ public class RegistrationFormPageObjectTests extends TestBase {
     Faker faker = new Faker();
 
 
-
         @Test
         @DisplayName("Региcтрация студента")
         void fillRegistrationForm() {
