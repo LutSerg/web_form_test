@@ -64,6 +64,13 @@ task owner(type: Test) {
         includeTags "owner"
     }
 }
+
+task registration(type: Test) {
+    useJUnitPlatform {
+        includeTags "registration"
+    }
+}
+
 test {
     useJUnitPlatform()
 }

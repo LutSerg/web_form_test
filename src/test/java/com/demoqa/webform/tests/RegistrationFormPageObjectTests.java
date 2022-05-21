@@ -4,10 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.webform.components.*;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import com.github.javafaker.Faker;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -28,7 +25,7 @@ public class RegistrationFormPageObjectTests extends TestBase {
     AdressComponent setFullAdress = new AdressComponent();
     Faker faker = new Faker();
 
-
+        @Tag("registration")
         @Test
         @DisplayName("Региcтрация студента")
         void fillRegistrationForm() {
