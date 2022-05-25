@@ -53,19 +53,19 @@ task test5(type: Test) {
     }
 }
 
-task systemProperties(type: Test) {
+task systemProperties_tests(type: Test) {
     useJUnitPlatform {
         includeTags "systemProperties"
     }
 }
 
-task owner(type: Test) {
+task owner_test(type: Test) {
     useJUnitPlatform {
         includeTags "owner"
     }
 }
 
-task registration(type: Test) {
+task registration_test(type: Test) {
     useJUnitPlatform {
         includeTags "registration"
     }
